@@ -1,31 +1,45 @@
-#include <iostream>
-using namepsace std;
+# include <iostream>
+using namespace std;
 
-struct {
+//searching in linkedlist
+
+//create a struct for linkedlist
+struct Node{
     int data;
     Node*next;
+};
 
-    bool search(Node*head, int key){
-        while(Node*head!=NULL){
-            if(head->data==key){
-                return true;
-                head=head->key;
-            }
-            else{
-                return false;
-            }
-            
+//create a  search function for searching
+int search(Node*head,int key){
+    int index=0;
 
+    while(head!=NULL){
+        if(head->data==key){
+            return index;
         }
+        head=head->next;
+        index++;
+    }
+    return -1;
+}
+
+int main(){
+    int key;
+    Node*head= new Node{10, new Node{20, new Node{30, NULL}}};
+    cout<<"Enter the number u want to search: ";
+    cin>>key;
+    cout<<endl;
+
+    int result= search(head,key);
+
+    if(result!=-1){
+        cout<<"Number found at "<<result<<endl;
+    }
+    else{
+        cout<<"Number not found"<<endl;
     }
 
 
-}
-int main(){
-    Node*head= new Node{10, new Node{20, new Node{30, NULL }}};
-    int key;
-    cout<<"Enter the num u want to seaqrch";
-    cin>>key;
 
-    cout<<search(head,key? "found": "Not found");
+    return 0;
 }
